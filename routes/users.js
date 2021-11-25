@@ -41,7 +41,7 @@ router.post("/login", function (req, res, next) {
 });
 
 /* POST a new user (REGISTER) */
-router.post("/", function (req, res, next) {
+router.post("/", function (req, res) {
   if (User.isUser(req.body.username)) return res.status(409).end();
   let newUser = new User(req.body);
   newUser.save().then(() => {
@@ -51,7 +51,6 @@ router.post("/", function (req, res, next) {
       { expiresIn: LIFETIME_JWT },
       (err, token) => {
         if (err) {
-          console.error("POST users/ :", err);
           return res.status(500).send(err.message);
         }
         console.log("POST users/ token:", token);
