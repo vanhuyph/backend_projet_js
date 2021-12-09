@@ -1,0 +1,41 @@
+### Login user
+# @name user
+POST http://localhost:3000/api/users/login
+Content-Type: application/json
+
+{
+    "username":"user",
+    "password":"azerty"
+}
+### get the user token
+@userToken = {{user.response.body.token}}
+
+### Read all recipes
+GET http://localhost:3000/api/recipes
+
+### Create a recipe
+POST http://localhost:3000/api/recipes
+Content-Type: application/json
+Authorization: {{userToken}}
+
+{
+    "name": "Tarte",
+    "description": "Très bon",
+    "duration": "50",
+    "qty_people": "1",
+    "creation_date": "2021-05-12",
+    "ingredients_list" : "Farine, oeuf, Eau"
+}
+
+### Update the recipe identified by 3
+PUT http://localhost:3000/api/recipes/3
+Content-Type: application/json
+Authorization: {{userToken}}
+
+{
+    "description": "UMAI !"
+}
+
+### Delete the recipe 2
+DELETE http://localhost:3000/api/recipes/2
+Authorization: {{userToken}}
