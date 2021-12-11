@@ -1,6 +1,7 @@
 "strict mode";
 const bcrypt = require("bcrypt");
 const { FILE } = require("dns");
+const { escape } = require("querystring");
 const saltRounds = 10;
 const FILE_PATH = __dirname + "/../data/users.json";
 
