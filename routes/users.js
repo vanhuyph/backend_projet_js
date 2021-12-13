@@ -63,4 +63,11 @@ router.post("/register", function (req, res, next) {
   });
 });
 
+// Delete a user : DELETE /api/users/:id
+router.delete("/:id", function (req, res) {
+  const userDeleted = User.delete(req.params.id);
+  if (!userDeleted) return res.status(404).end();
+  return res.json(userDeleted);
+});
+
 module.exports = router;
