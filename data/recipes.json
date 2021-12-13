@@ -1,41 +1,5 @@
 [
   {
-    "id": 1,
-    "name": "test",
-    "description": "desc",
-    "duration": "60",
-    "qty_people": "5",
-    "creation_date": "2021-04-12",
-    "ingredients_list": "Oeuf, farine"
-  },
-  {
-    "id": 2,
-    "name": "Tarte",
-    "description": "Très bon",
-    "duration": "50",
-    "qty_people": "1",
-    "creation_date": "2021-05-12",
-    "ingredients_list": "Farine, oeuf, Eau"
-  },
-  {
-    "id": 3,
-    "name": "test2",
-    "description": "desc",
-    "duration": "1",
-    "qty_people": "1",
-    "creation_date": "2021-12-03",
-    "ingredients_list": "oeuf"
-  },
-  {
-    "id": 4,
-    "name": "nom",
-    "description": "descr",
-    "duration": "2",
-    "qty_people": "2",
-    "creation_date": "2021-12-02",
-    "ingredients_list": "oeuf, lol, eau"
-  },
-  {
     "id": 5,
     "name": "test2",
     "description": "44",
@@ -74,15 +38,5 @@
     "creation_date": "2021-12-02",
     "ingredients_list": "oeuf",
     "username": "test"
-  },
-  {
-    "id": 9,
-    "name": "Tourte",
-    "description": "Tourte aux jambon",
-    "duration": "60",
-    "qty_people": "4",
-    "creation_date": "2021-12-13",
-    "ingredients_list": "pate_feuillete jambon oeuf",
-    "username": "James"
   }
 ]

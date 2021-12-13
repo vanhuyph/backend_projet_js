@@ -8,7 +8,12 @@ const recipeModel = new Recipes();
 // GET /recipes : read all the recipes from the menu
 router.get("/", function (req, res) {
   console.log("GET /recipes");
-  return res.json(recipeModel.getAll());
+  console.log("req.params", req.query);
+  const username = req.query ? String(req.query["username"]) : undefined;
+  if(!username) return res.json(recipeModel.getAll());
+  else{
+    res.json(recipeModel.getAll((recipe) => recipe.username === username));
+  }
 });
 
 // GET /recipes/random : Get a random recipe
@@ -18,6 +23,7 @@ router.get("/random", function (req, res) {
   if (!recipe) return res.status(404).end();
   return res.json(recipe);
 });
+
 
 // POST /recipes : create a recipe to be added to the menu.
 // authorize Middleware : it authorize any authenticated user and load the user in req.user
