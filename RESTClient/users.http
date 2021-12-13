@@ -1,0 +1,24 @@
+### Read all users
+GET http://localhost:3000/api/users
+Authorization: {{user.response.body.token}}
+
+### Create user
+POST http://localhost:3000/api/users/register
+Content-Type: application/json
+
+{
+    "username":"user",
+    "password":"azerty"
+}
+
+### Login user
+# @name user
+POST http://localhost:3000/api/users/login
+Content-Type: application/json
+
+{
+    "username":"user",
+    "password":"azerty"
+}
+### get the user token
+@userToken = {{user.response.body.token}}

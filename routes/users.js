@@ -41,7 +41,7 @@ router.post("/login", function (req, res, next) {
 });
 
 /* POST a new user (REGISTER) */
-router.post("/", function (req, res) {
+router.post("/register", function (req, res, next) {
   if (User.isUser(req.body.username)) return res.status(409).end();
   let newUser = new User(req.body);
   newUser.save().then(() => {
