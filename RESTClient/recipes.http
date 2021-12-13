@@ -13,6 +13,10 @@ Content-Type: application/json
 ### Read all recipes
 GET http://localhost:3000/api/recipes
 
+
+### Read recipe from a certain user
+GET http://localhost:3000/api/recipes?username=test
+
 ### Create a recipe
 POST http://localhost:3000/api/recipes
 Content-Type: application/json
@@ -24,7 +28,8 @@ Authorization: {{userToken}}
     "duration": "50",
     "qty_people": "1",
     "creation_date": "2021-05-12",
-    "ingredients_list" : "Farine, oeuf, Eau"
+    "ingredients_list" : "Farine, oeuf, Eau",
+   
 }
 
 ### Update the recipe identified by 3

@@ -41,6 +41,18 @@ class Recipes {
     return recipes;
   }
 
+   /**
+   * Returns all movies
+   * @param {predicate} function to be used to filter all movies
+   * @returns {Array} Array of movies
+   */
+  getAll(filterPredicate) {
+    let recipe;
+    recipe = parse(this.jsonDbPath, this.recipe);
+    if (filterPredicate) return recipe.filter(filterPredicate);
+    else return recipe;
+  }
+
   /**
    * Returns the recipe identified by id
    * @param {number} id - id of the recipe to find
