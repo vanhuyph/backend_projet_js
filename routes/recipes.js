@@ -35,7 +35,8 @@ router.post("/", authorize, function (req, res) {
     (req.body.hasOwnProperty("duration") && req.body.duration.length === 0) ||
     (req.body.hasOwnProperty("qty_people") && req.body.qty_people.length === 0) ||
     (req.body.hasOwnProperty("creation_date") && req.body.creation_date.length === 0) ||
-    (req.body.hasOwnProperty("ingredients_list") && req.body.ingredients_list.length === 0)
+    (req.body.hasOwnProperty("ingredients_list") && req.body.ingredients_list.length === 0) ||
+    (req.body.hasOwnProperty("username") && req.body.username.length === 0)
   )
   return res.status(400).end();
 
@@ -66,7 +67,8 @@ router.put("/:id", authorize, function (req, res) {
     (req.body.hasOwnProperty("duration") && req.body.duration.length === 0) ||
     (req.body.hasOwnProperty("qty_people") && req.body.qty_people.length === 0) ||
     (req.body.hasOwnProperty("creation_date") && req.body.creation_date.length === 0) ||
-    (req.body.hasOwnProperty("ingredients_list") && req.body.ingredients_list.length === 0)
+    (req.body.hasOwnProperty("ingredients_list") && req.body.ingredients_list.length === 0) ||
+    (req.body.hasOwnProperty("username") && req.body.username.length === 0)
   )
   return res.status(400).end();
 

@@ -12,7 +12,8 @@ const DefaultRecipes = [
         duration: "60",
         qty_people: "5",
         creation_date : "2021-04-12",
-        ingredients_list: "Oeuf, farine"
+        ingredients_list: "Oeuf, farine",
+        username: "test"
     }
 ];
 
@@ -70,7 +71,8 @@ class Recipes {
       duration: escape(body.duration),
       qty_people: escape(body.qty_people),
       creation_date: escape(body.creation_date),
-      ingredients_list: escape(body.ingredients_list)
+      ingredients_list: escape(body.ingredients_list),
+      username: escape(body.username)
     };
     recipes.push(newRecipe);
     serialize(this.jsonDbPath, recipes);
