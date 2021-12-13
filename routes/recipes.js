@@ -6,10 +6,11 @@ var router = express.Router();
 const recipeModel = new Recipes();
 
 // GET /recipes : read all the recipes from the menu
+// If there's a parameter, return a filtered recipes list
 router.get("/", function (req, res) {
   console.log("GET /recipes");
   console.log("req.params", req.query);
-  const username = req.query ? String(req.query["username"]) : undefined;
+  const username = req.query ? (req.query["username"]) : undefined;
   if(!username) return res.json(recipeModel.getAll());
   else{
     res.json(recipeModel.getAll((recipe) => recipe.username === username));

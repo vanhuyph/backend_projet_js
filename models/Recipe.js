@@ -42,9 +42,9 @@ class Recipes {
   }
 
    /**
-   * Returns all movies
-   * @param {predicate} function to be used to filter all movies
-   * @returns {Array} Array of movies
+   * Returns all recipes
+   * @param {predicate} function to be used to filter all recipes
+   * @returns {Array} Array of recipes
    */
   getAll(filterPredicate) {
     let recipe;
