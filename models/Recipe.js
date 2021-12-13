@@ -5,16 +5,16 @@ const jsonDbPath = __dirname + "/../data/recipes.json";
 
 // Default recipes
 const DefaultRecipes = [
-    {
-        id: 1,
-        name: "test",
-        description: "desc",
-        duration: "60",
-        qty_people: "5",
-        creation_date : "2021-04-12",
-        ingredients_list: "Oeuf, farine",
-        username: "test"
-    }
+  {
+    id: 1,
+    name: "test",
+    description: "desc",
+    duration: "60",
+    qty_people: "5",
+    creation_date: "2021-04-12",
+    ingredients_list: "Oeuf, farine",
+    username: "test",
+  },
 ];
 
 class Recipes {
@@ -54,6 +54,11 @@ class Recipes {
     return recipes[foundIndex];
   }
 
+  getOneRandomly() {
+    let recipeList = getRecipesListFromFile(jsonDbPath);
+    return recipeList[Math.floor(Math.random() * recipeList.length)];
+  }
+
   /**
    * Add a recipe in the DB and returns the added recipe (containing a new id)
    * @param {object} body - it contains all required data to create a recipe
@@ -72,7 +77,7 @@ class Recipes {
       qty_people: escape(body.qty_people),
       creation_date: escape(body.creation_date),
       ingredients_list: escape(body.ingredients_list),
-      username: escape(body.username)
+      username: escape(body.username),
     };
     recipes.push(newRecipe);
     serialize(this.jsonDbPath, recipes);
@@ -110,10 +115,10 @@ class Recipes {
     // Escape all dangerous potential new chars
     const updatedRecipe = { ...recipes[foundIndex] };
     for (const key in body) {
-        if (Object.hasOwnProperty.call(body, key)) {
+      if (Object.hasOwnProperty.call(body, key)) {
         const element = body[key];
         updatedRecipe[key] = escape(element);
-        }
+      }
     }
     // replace the movie found at index : (or use splice)
     recipes[foundIndex] = updatedRecipe;
@@ -121,6 +126,16 @@ class Recipes {
     serialize(this.jsonDbPath, recipes);
     return updatedRecipe;
   }
+}
+
+function getRecipesListFromFile(filePath) {
+  const fs = require("fs");
+  if (!fs.existsSync(filePath)) return [];
+  let recipeListRawData = fs.readFileSync(filePath);
+  let recipeList;
+  if (recipeListRawData) recipeList = JSON.parse(recipeListRawData);
+  else recipeList = [];
+  return recipeList;
 }
 
 module.exports = { Recipes };

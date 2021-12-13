@@ -11,14 +11,11 @@ router.get("/", function (req, res) {
   return res.json(recipeModel.getAll());
 });
 
-// GET /recipes/{id} : Get a recipe from its id in the menu
-router.get("/:id", function (req, res) {
-  console.log(`GET /recipes/${req.params.id}`);
-
-  const recipe = recipeModel.getOne(req.params.id);
+// GET /recipes/random : Get a random recipe
+router.get("/random", function (req, res) {
+  const recipe = recipeModel.getOneRandomly();
   // Send an error code '404 Not Found' if the recipe was not found
   if (!recipe) return res.status(404).end();
-
   return res.json(recipe);
 });
 
@@ -26,22 +23,35 @@ router.get("/:id", function (req, res) {
 // authorize Middleware : it authorize any authenticated user and load the user in req.user
 router.post("/", authorize, function (req, res) {
   console.log("POST /recipes");
-
   // Send an error code '400 Bad request' if the body parameters are not valid
   if (
     !req.body ||
     (req.body.hasOwnProperty("name") && req.body.name.length === 0) ||
-    (req.body.hasOwnProperty("description") && req.body.description.length === 0) ||
+    (req.body.hasOwnProperty("description") &&
+      req.body.description.length === 0) ||
     (req.body.hasOwnProperty("duration") && req.body.duration.length === 0) ||
-    (req.body.hasOwnProperty("qty_people") && req.body.qty_people.length === 0) ||
-    (req.body.hasOwnProperty("creation_date") && req.body.creation_date.length === 0) ||
-    (req.body.hasOwnProperty("ingredients_list") && req.body.ingredients_list.length === 0) ||
+    (req.body.hasOwnProperty("qty_people") &&
+      req.body.qty_people.length === 0) ||
+    (req.body.hasOwnProperty("creation_date") &&
+      req.body.creation_date.length === 0) ||
+    (req.body.hasOwnProperty("ingredients_list") &&
+      req.body.ingredients_list.length === 0) ||
     (req.body.hasOwnProperty("username") && req.body.username.length === 0)
   )
-  return res.status(400).end();
+    return res.status(400).end();
 
   const recipe = recipeModel.addOne(req.body);
 
+  return res.json(recipe);
+});
+
+// GET /recipes/{id} : Get a recipe from its id in the menu
+router.get("/:id", function (req, res) {
+  console.log(`GET /recipes/${req.params.id}`);
+
+  const recipe = recipeModel.getOne(req.params.id);
+  // Send an error code '404 Not Found' if the recipe was not found
+  if (!recipe) return res.status(404).end();
   return res.json(recipe);
 });
 
@@ -63,14 +73,18 @@ router.put("/:id", authorize, function (req, res) {
   if (
     !req.body ||
     (req.body.hasOwnProperty("name") && req.body.name.length === 0) ||
-    (req.body.hasOwnProperty("description") && req.body.description.length === 0) ||
+    (req.body.hasOwnProperty("description") &&
+      req.body.description.length === 0) ||
     (req.body.hasOwnProperty("duration") && req.body.duration.length === 0) ||
-    (req.body.hasOwnProperty("qty_people") && req.body.qty_people.length === 0) ||
-    (req.body.hasOwnProperty("creation_date") && req.body.creation_date.length === 0) ||
-    (req.body.hasOwnProperty("ingredients_list") && req.body.ingredients_list.length === 0) ||
+    (req.body.hasOwnProperty("qty_people") &&
+      req.body.qty_people.length === 0) ||
+    (req.body.hasOwnProperty("creation_date") &&
+      req.body.creation_date.length === 0) ||
+    (req.body.hasOwnProperty("ingredients_list") &&
+      req.body.ingredients_list.length === 0) ||
     (req.body.hasOwnProperty("username") && req.body.username.length === 0)
   )
-  return res.status(400).end();
+    return res.status(400).end();
 
   const recipe = recipeModel.updateOne(req.params.id, req.body);
   // Send an error code 'Not Found' if the recipe was not found :
