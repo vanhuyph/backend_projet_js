@@ -19,12 +19,6 @@ class Recipe {
     let recipesList = getRecipesListFromFile(jsonDbPath);
     if (recipesList.length === 0) return 1;
     return recipesList[recipesList.length - 1].id + 1;
-
-    // const recipes = parse(this.jsonDbPath, this.DefaultRecipes);
-    // let nextId;
-    // if (recipes.length === 0) nextId = 1;
-    // else nextId = recipes[recipes.length - 1].id + 1;
-    // return nextId;
   }
 
   /**
@@ -34,25 +28,6 @@ class Recipe {
   static get getAllRecipes() {
     return getRecipesListFromFile(jsonDbPath);
   }
-
-<<<<<<< HEAD
-  /**
-   * Returns all recipes
-   * @param {predicate} function to be used to filter all movies
-   * @returns {Array} Array of movies
-=======
-   /**
-   * Returns all recipes
-   * @param {predicate} function to be used to filter all recipes
-   * @returns {Array} Array of recipes
->>>>>>> d1c221978ef0238a8be7426789c0fd264b87c393
-   */
-  // getAll(filterPredicate) {
-  //   let recipe;
-  //   recipe = parse(this.jsonDbPath, this.recipe);
-  //   if (filterPredicate) return recipe.filter(filterPredicate);
-  //   else return recipe;
-  // }
 
   /**
    * Returns the recipe identified by id
