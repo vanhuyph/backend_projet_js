@@ -11,7 +11,7 @@ const DefaultRecipes = [
         description: "desc",
         duration: "60",
         qty_people: "5",
-        creation_date : "2021-04-12",
+        creation_date : "14/12/2021",
         ingredients_list: "Oeuf, farine",
         username: "test"
     }
