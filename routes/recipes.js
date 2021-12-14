@@ -21,15 +21,11 @@ router.post("/", authorize, function (req, res) {
   if (
     !req.body ||
     (req.body.hasOwnProperty("name") && req.body.name.length === 0) ||
-    (req.body.hasOwnProperty("description") &&
-      req.body.description.length === 0) ||
+    (req.body.hasOwnProperty("description") && req.body.description.length === 0) ||
     (req.body.hasOwnProperty("duration") && req.body.duration.length === 0) ||
-    (req.body.hasOwnProperty("qty_people") &&
-      req.body.qty_people.length === 0) ||
-    (req.body.hasOwnProperty("creation_date") &&
-      req.body.creation_date.length === 0) ||
-    (req.body.hasOwnProperty("ingredients_list") &&
-      req.body.ingredients_list.length === 0) ||
+    (req.body.hasOwnProperty("qty_people") && req.body.qty_people.length === 0) ||
+    (req.body.hasOwnProperty("creation_date") && req.body.creation_date.length === 0) ||
+    (req.body.hasOwnProperty("ingredients_list") && req.body.ingredients_list.length === 0) ||
     (req.body.hasOwnProperty("username") && req.body.username.length === 0)
   )
     return res.status(400).end();
@@ -62,31 +58,5 @@ router.get("/:id", function (req, res) {
 router.delete("/:id", authorize, function (req, res) {
   return res.json(Recipe.deleteRecipe(req.params.id));
 });
-
-// PUT /recipes/{id} : update a recipe at id
-// router.put("/:id", authorize, function (req, res) {
-//   console.log(`PUT /recipes/${req.params.id}`);
-//   // Send an error code '400 Bad request' if the body parameters are not valid
-//   if (
-//     !req.body ||
-//     (req.body.hasOwnProperty("name") && req.body.name.length === 0) ||
-//     (req.body.hasOwnProperty("description") &&
-//       req.body.description.length === 0) ||
-//     (req.body.hasOwnProperty("duration") && req.body.duration.length === 0) ||
-//     (req.body.hasOwnProperty("qty_people") &&
-//       req.body.qty_people.length === 0) ||
-//     (req.body.hasOwnProperty("creation_date") &&
-//       req.body.creation_date.length === 0) ||
-//     (req.body.hasOwnProperty("ingredients_list") &&
-//       req.body.ingredients_list.length === 0) ||
-//     (req.body.hasOwnProperty("username") && req.body.username.length === 0)
-//   )
-//     return res.status(400).end();
-
-//   const recipe = recipeModel.updateOne(req.params.id, req.body);
-//   // Send an error code 'Not Found' if the recipe was not found :
-//   if (!recipe) return res.status(404).end();
-//   return res.json(recipe);
-// });
 
 module.exports = router;
