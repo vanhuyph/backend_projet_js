@@ -63,6 +63,11 @@ router.post("/register", function (req, res, next) {
   });
 });
 
+// GET /users/{username} : Get all user's informations from his username
+router.get("/:username", function (req, res) {
+  return res.json(User.getUserFromList(req.params.username));
+});
+
 // Delete a user : DELETE /api/users/:id
 router.delete("/:id", function (req, res) {
   const userDeleted = User.delete(req.params.id);

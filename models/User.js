@@ -9,7 +9,7 @@ class User {
   constructor(data) {
     this.id = User.nextUserId();
     this.username = escape(data.username);
-    this.email = escape(data.email);
+    this.email = data.email;
     this.password = data.password;
     this.admin = false;
   }
