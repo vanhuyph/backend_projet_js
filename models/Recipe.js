@@ -35,10 +35,17 @@ class Recipe {
     return getRecipesListFromFile(jsonDbPath);
   }
 
+<<<<<<< HEAD
   /**
    * Returns all recipes
    * @param {predicate} function to be used to filter all movies
    * @returns {Array} Array of movies
+=======
+   /**
+   * Returns all recipes
+   * @param {predicate} function to be used to filter all recipes
+   * @returns {Array} Array of recipes
+>>>>>>> d1c221978ef0238a8be7426789c0fd264b87c393
    */
   // getAll(filterPredicate) {
   //   let recipe;

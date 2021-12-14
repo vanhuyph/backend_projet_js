@@ -4,8 +4,19 @@ const { authorize } = require("../utils/auth");
 let router = express.Router();
 
 // GET /recipes : read all the recipes from the menu
+// If there's a parameter, return a filtered recipes list
 router.get("/", function (req, res) {
+<<<<<<< HEAD
   return res.json(Recipe.getAllRecipes);
+=======
+  console.log("GET /recipes");
+  console.log("req.params", req.query);
+  const username = req.query ? (req.query["username"]) : undefined;
+  if(!username) return res.json(recipeModel.getAll());
+  else{
+    res.json(recipeModel.getAll((recipe) => recipe.username === username));
+  }
+>>>>>>> d1c221978ef0238a8be7426789c0fd264b87c393
 });
 
 // GET /recipes/random : Get a random recipe
