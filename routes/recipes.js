@@ -14,6 +14,21 @@ router.get("/random", function (req, res) {
   return res.json(Recipe.getOneRandomly);
 });
 
+// GET /recipes/{search} : Get all recipes who matches with a search
+router.get("/:search", function (req, res) {
+  return res.json(Recipe.search(req.params.search));
+});
+
+// GET /recipes/{username} : Get all recipes from his username
+router.get("/:username", function (req, res) {
+  return res.json(Recipe.getAllRecipesFromUsername(req.params.username));
+});
+
+// GET /recipes/{id} : Get a recipe from its id in the menu
+router.get("/seerecipe/:id", function (req, res) {
+  return res.json(Recipe.getRecipe(req.params.id));
+});
+
 // POST /recipes : create a recipe to be added to the menu.
 // authorize Middleware : it authorize any authenticated user and load the user in req.user
 router.post("/", authorize, function (req, res) {
@@ -37,24 +52,6 @@ router.post("/", authorize, function (req, res) {
   let newRecipe = new Recipe(req.body);
   newRecipe.addRecipe();
   return res.json(newRecipe);
-});
-
-//Search recipes: GET /api/courts/:search
-router.get("/:search", function (req, res) {
-  return res.json(Recipe.search(req.params.search));
-});
-
-// GET /recipes/{username} : Get all recipes from his username
-router.get("/:username", function (req, res) {
-  return res.json(Recipe.getAllRecipesFromUsername(req.params.username));
-});
-
-// GET /recipes/{id} : Get a recipe from its id in the menu
-router.get("/:id", function (req, res) {
-  const recipe = Recipe.getOne(req.params.id);
-  // Send an error code '404 Not Found' if the recipe was not found
-  if (!recipe) return res.status(404).end();
-  return res.json(recipe);
 });
 
 // DELETE /recipes/{i} : delete a recipe from the menu
