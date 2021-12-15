@@ -54,21 +54,6 @@ router.post("/", authorize, function (req, res) {
   return res.json(newRecipe);
 });
 
-// Search recipes: GET /api/courts/:search
-router.get("/:search", function (req, res) {
-  return res.json(Recipe.search(req.params.search));
-});
-
-// GET /recipes/{username} : Get all recipes from his username
-router.get("/:username", function (req, res) {
-  return res.json(Recipe.getAllRecipesFromUsername(req.params.username));
-});
-
-// GET /recipes/{id} : Get a recipe from its id in the menu
-router.get("/seerecipe/:id", function (req, res) {
-  return res.json(Recipe.getRecipe(req.params.id));
-});
-
 // DELETE /recipes/{i} : delete a recipe from the menu
 // authorize Middleware : it authorize any authenticated user and load the user in req.user
 router.delete("/:id", authorize, function (req, res) {
