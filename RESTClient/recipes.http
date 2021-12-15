@@ -15,7 +15,7 @@ GET http://localhost:3000/api/recipes
 
 
 ### Read recipe from a certain user
-GET http://localhost:3000/api/recipes?username=test
+GET http://localhost:3000/api/recipes/test
 
 ### Create a recipe
 POST http://localhost:3000/api/recipes
@@ -27,9 +27,9 @@ Authorization: {{userToken}}
     "description": "Très bon",
     "duration": "50",
     "qty_people": "1",
-    "creation_date": "2021-05-12",
+    "creation_date": "12/05/2021",
     "ingredients_list" : "Farine, oeuf, Eau",
-   
+    "username" : "James"
 }
 
 ### Update the recipe identified by 3

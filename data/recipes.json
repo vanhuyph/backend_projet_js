@@ -1,1 +1,42 @@
-[{"id":7,"name":"Cookie","description":"cookie fait maison a base de noix","duration":"80","qty_people":"4","creation_date":"2021-12-14 15:16:52","ingredients_list":"sucre, farine","username":"Caruso"},{"id":8,"name":"Quiche Lorraine","description":"Tarte à base de pate feuilleté","duration":"120","qty_people":"4","creation_date":"2021-12-14 17:59:58","ingredients_list":"Pate feuilleté, oeufs, jambon, champignon","username":"James"},{"id":9,"name":"Moule frite","description":"Prenez des moules, faites les cuires dans une casseroles. Préparer des frites et vous etes prets!","duration":"60","qty_people":"4","creation_date":"2021-12-14 19:13:29","ingredients_list":"Moules et frites","username":"Caruso"},{"id":10,"name":"Gateau chocolat","description":"Gateaux au chocolat pur noir","duration":"60","qty_people":"4","creation_date":"2021-12-15 14:44:12","ingredients_list":"Farine, sucre, oeufs, chocolat noir","username":"Caruso"}]
+[
+  {
+    "id": 7,
+    "name": "Cookie",
+    "description": "cookie fait maison a base de noix",
+    "duration": "80",
+    "qty_people": "4",
+    "creation_date": "2021-12-14 15:16:52",
+    "ingredients_list": "sucre, farine",
+    "username": "Caruso"
+  },
+  {
+    "id": 8,
+    "name": "Quiche Lorraine",
+    "description": "Tarte à base de pate feuilleté",
+    "duration": "120",
+    "qty_people": "4",
+    "creation_date": "2021-12-14 17:59:58",
+    "ingredients_list": "Pate feuilleté, oeufs, jambon, champignon",
+    "username": "James"
+  },
+  {
+    "id": 9,
+    "name": "Moule frite",
+    "description": "Prenez des moules, faites les cuires dans une casseroles. Préparer des frites et vous etes prets!",
+    "duration": "60",
+    "qty_people": "4",
+    "creation_date": "2021-12-14 19:13:29",
+    "ingredients_list": "Moules et frites",
+    "username": "Caruso"
+  },
+  {
+    "id": 10,
+    "name": "Gateau chocolat",
+    "description": "Gateaux au chocolat pur noir",
+    "duration": "60",
+    "qty_people": "4",
+    "creation_date": "2021-12-15 14:44:12",
+    "ingredients_list": "Farine, sucre, oeufs, chocolat noir",
+    "username": "Caruso"
+  }
+]

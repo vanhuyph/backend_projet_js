@@ -98,34 +98,6 @@ class Recipe {
     saveRecipesListToFile(jsonDbPath, recipesList);
     return itemRemoved;
   }
-
-  /**
-   * Update a recipe in the DB and return the updated recipe
-   * @param {number} id - id of the recipe to be updated
-   * @param {object} body - it contains all the data to be updated
-   * @returns {object} the updated recipe or undefined if the update operation failed
-   */
-  // updateOne(id, body) {
-  //   const recipes = parse(this.jsonDbPath, this.DefaultRecipes);
-  //   const foundIndex = recipes.findIndex((recipe) => recipe.id == id);
-  //   if (foundIndex < 0) return;
-  //   // create a new object based on the existing recipe - prior to modification -
-  //   // and the properties requested to be updated (those in the body of the request)
-  //   // use of the spread operator to create a shallow copy and repl
-  //   // Escape all dangerous potential new chars
-  //   const updatedRecipe = { ...recipes[foundIndex] };
-  //   for (const key in body) {
-  //     if (Object.hasOwnProperty.call(body, key)) {
-  //       const element = body[key];
-  //       updatedRecipe[key] = escape(element);
-  //     }
-  //   }
-  //   // replace the movie found at index : (or use splice)
-  //   recipes[foundIndex] = updatedRecipe;
-
-  //   serialize(this.jsonDbPath, recipes);
-  //   return updatedRecipe;
-  // }
 }
 
 function getRecipesListFromFile(filePath) {
