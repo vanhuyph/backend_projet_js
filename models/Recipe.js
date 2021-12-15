@@ -34,8 +34,7 @@ class Recipe {
    * @param {number} id - id of the recipe to find
    * @returns {object} the recipe found or undefined if the id does not lead to a recipe
    */
-
-  static getOne(id) {
+  static getRecipe(id) {
     let recipesList = getRecipesListFromFile(jsonDbPath);
     return recipesList.find((recipe) => recipe.id == id);
   }
