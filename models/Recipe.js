@@ -2,26 +2,6 @@
 var escape = require("escape-html");
 const jsonDbPath = __dirname + "/../data/recipes.json";
 
-<<<<<<< HEAD
-// Default recipes
-const DefaultRecipes = [
-    {
-        id: 1,
-        name: "test",
-        description: "desc",
-        duration: "60",
-        qty_people: "5",
-        creation_date : "14/12/2021",
-        ingredients_list: "Oeuf, farine",
-        username: "test"
-    }
-];
-
-class Recipes {
-  constructor(dbPath = jsonDbPath, defaultItems = DefaultRecipes) {
-    this.jsonDbPath = dbPath;
-    this.DefaultRecipes = defaultItems;
-=======
 class Recipe {
   constructor(data) {
     this.id = Recipe.getNextId();
@@ -33,7 +13,6 @@ class Recipe {
     this.creation_date = escape(data.creation_date);
     this.ingredients_list = escape(data.ingredients_list);
     this.username = escape(data.username);
->>>>>>> 9f16bd1cfba71ee35553685afaf615a29e9e32a5
   }
 
   static getNextId() {
