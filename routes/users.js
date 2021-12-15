@@ -51,7 +51,6 @@ router.post("/register", function (req, res, next) {
       { expiresIn: LIFETIME_JWT },
       (err, token) => {
         if (err) {
-          console.error("POST users/ :", err);
           return res.status(500).send(err.message);
         }
         console.log("POST users/ token:", token);
@@ -62,6 +61,18 @@ router.post("/register", function (req, res, next) {
       }
     );
   });
+});
+
+// GET /users/{username} : Get all user's informations from his username
+router.get("/:username", function (req, res) {
+  return res.json(User.getUserFromList(req.params.username));
+});
+
+// Delete a user : DELETE /api/users/:id
+router.delete("/:id", function (req, res) {
+  const userDeleted = User.delete(req.params.id);
+  if (!userDeleted) return res.status(404).end();
+  return res.json(userDeleted);
 });
 
 module.exports = router;
