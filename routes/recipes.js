@@ -35,7 +35,7 @@ router.post("/", authorize, function (req, res) {
   return res.json(newRecipe);
 });
 
-//Search recipes: GET /api/courts/:search
+// Search recipes: GET /api/courts/:search
 router.get("/:search", function (req, res) {
   return res.json(Recipe.search(req.params.search));
 });
