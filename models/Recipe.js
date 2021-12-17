@@ -13,6 +13,7 @@ class Recipe {
     this.creation_date = escape(data.creation_date);
     this.ingredients_list = escape(data.ingredients_list);
     this.username = escape(data.username);
+    this.image = escape(data.image);
   }
 
   static getNextId() {
