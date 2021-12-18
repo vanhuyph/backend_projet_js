@@ -83,6 +83,24 @@ class Recipe {
     saveRecipesListToFile(jsonDbPath, recipesList);
   }
 
+  static updateOne(id, newData) {
+    let recipeList = getRecipesListFromFile(jsonDbPath);
+    let index = recipeList.findIndex((recipe) => recipe.id == id);
+    if (index < 0 || !newData) return;
+
+    //escape new data to protect against XXS attack
+    if (newData.name) newData.name = escape(newData.name);
+    if (newData.description) newData.description = escape(newData.description);
+    if (newData.duration) newData.duration = escape(newData.duration);
+    if (newData.qty_people) newData.qty_people = escape(newData.qty_people);
+    if (newData.ingredients_list) newData.ingredients_list = escape(newData.ingredients_list);
+
+    recipeList[index] = { ...recipeList[index], ...newData };
+    const recipeUpdated = { ...recipeList[index] };
+    saveRecipesListToFile(jsonDbPath, recipeList);
+    return recipeUpdated;
+  }
+
   /**
    * Delete a recipe in the DB and return the deleted recipe
    * @param {number} id - id of the recipe to be deleted

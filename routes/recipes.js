@@ -60,4 +60,22 @@ router.delete("/:id", authorize, function (req, res) {
   return res.json(Recipe.deleteRecipe(req.params.id));
 });
 
+router.put("/:id", authorize, function (req, res) {
+
+  if (
+    !req.body ||
+    (req.body.hasOwnProperty("name") && req.body.name.length === 0) ||
+    (req.body.hasOwnProperty("description") &&
+      req.body.description.length === 0) ||
+    (req.body.hasOwnProperty("duration") && req.body.duration.length === 0) ||
+    (req.body.hasOwnProperty("qty_people") &&
+      req.body.qty_people.length === 0) ||
+    (req.body.hasOwnProperty("ingredients_list") &&
+      req.body.ingredients_list.length === 0) 
+  )
+    return res.status(400).end();
+   return res.json (Recipe.updateOne(req.params.id, req.body));
+
+});
+
 module.exports = router;
