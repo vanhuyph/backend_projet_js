@@ -1,4 +1,4 @@
-# Back-end project FoodX app
+# Backend project FoodX app
 ## How to install the backend?
 - Clone the repository
 ```
