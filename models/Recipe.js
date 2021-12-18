@@ -57,7 +57,6 @@ class Recipe {
     allRecipesList.forEach((recipe) => {
       if (
         recipe.name.toLowerCase().match(regex) ||
-        recipe.description.toLowerCase().match(regex) ||
         recipe.username.toLowerCase().match(regex)
       ) {
         recipesList.push(recipe);
