@@ -1,6 +1,6 @@
 {
-  "name": "film-api",
-  "version": "0.0.0",
+  "name": "foodx-app-backend",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "nodemon ./bin/www",
@@ -24,6 +24,6 @@
     "pug": "3.0.0"
   },
   "author": {
-    "name": "e-Baron"
+    "name": "@vanhuyph-@AbdenourDidi-@BryanVM13"
   }
 }
